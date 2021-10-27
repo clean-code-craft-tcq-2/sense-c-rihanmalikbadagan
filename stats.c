@@ -1,13 +1,8 @@
 #include <stdio.h>
 #include "stats.h"
-#define MAX 10.2
 
 int emailAlertCallCount = 0;
 int ledAlertCallCount = 0;
-typedef int (*alerter_funcptr)(void);
-void check_and_alert(float maxThreshold,alerter_funcptr alerters[],struct Stats computedStats);
-int emailAlerter(void);
-int ledAlerter(void);
 
 struct Stats compute_statistics(const float* numberset, int setlength) {
     struct Stats s;

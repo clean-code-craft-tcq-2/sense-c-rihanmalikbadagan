@@ -13,8 +13,6 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     float maxThreshold = 0;
     
     alerter_funcptr alerters[] = {emailAlerter,ledAlerter};
-    alerters[0]();
-    alerters[1]();
     
     if (setlength > 0)
     {
@@ -42,7 +40,7 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     else
     {
         printf("[ERROR] Invalid argument passed, returning zero\n");
-        return compute_statistics;
+        return s;
     }
     check_and_alert(maxThreshold, alerters, s);
     
@@ -65,6 +63,8 @@ ledAlerter(void)
 void
 check_and_alert(float maxThreshold,alerter_funcptr alerters[],struct Stats computedStats)
 {
+	(*alerters[0])();
+    (*alerters[1])();
     if(emailAlertCallCount == 1)
     {
         printf("Function emailAlerter() was executed\n");
@@ -74,6 +74,11 @@ check_and_alert(float maxThreshold,alerter_funcptr alerters[],struct Stats compu
     {
         printf("Function ledAlertCallCount() was executed\n");
     }
+	
+	if(maxThreshold != 0)
+	{
+		printf("The array element has crossed threshold value = %f",maxThreshold);
+	}
     
     printf("Statistics min = %f, max = %f, average = %f",computedStats.min,computedStats.max,computedStats.average);
 }

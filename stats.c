@@ -44,9 +44,9 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
         printf("[ERROR] Invalid argument passed, returning zero\n");
         return compute_statistics;
     }
-    check_and_alert(maxThreshold, alerters, computedStats);
+    check_and_alert(maxThreshold, alerters, s);
     
-    return compute_statistics;
+    return s;
     
 }
 
@@ -54,14 +54,12 @@ void
 emailAlerter(void)
 {
     emailAlertCallCount = 1;
-    return emailAlertCallCount;
 }
 
 void
 ledAlerter(void)
 {
     ledAlertCallCount = 1;
-    return ledAlertCallCount;
 }
 
 void

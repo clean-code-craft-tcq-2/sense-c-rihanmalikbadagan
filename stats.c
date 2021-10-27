@@ -50,13 +50,15 @@ struct Stats compute_statistics(const float* numberset, int setlength) {
     
 }
 
-int emailAlerter(void)
+void
+emailAlerter(void)
 {
     emailAlertCallCount = 1;
     return emailAlertCallCount;
 }
 
-int ledAlerter(void)
+void
+ledAlerter(void)
 {
     ledAlertCallCount = 1;
     return ledAlertCallCount;
@@ -75,5 +77,5 @@ check_and_alert(float maxThreshold,alerter_funcptr alerters[],struct Stats compu
         printf("Function ledAlertCallCount() was executed\n");
     }
     
-    printf("Statistics min = %d, max = %d, average = %d",computedStats.min,computedStats.max,computedStats.average);
+    printf("Statistics min = %f, max = %f, average = %f",computedStats.min,computedStats.max,computedStats.average);
 }

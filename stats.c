@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "stats.h"
 #define MAX 10.2
 

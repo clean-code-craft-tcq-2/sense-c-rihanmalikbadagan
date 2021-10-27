@@ -1,6 +1,6 @@
 #define MAX 10.2
 struct Stats{
-  float avarage;
+  float average;
   float min;
   float max;
 };

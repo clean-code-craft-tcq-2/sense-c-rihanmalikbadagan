@@ -1,4 +1,12 @@
+#define MAX 10.2
+struct Stats{
+  float avarage;
+  float min;
+  float max;
+};
 
+int emailAlerter(void);
+int ledAlerter(void);
 struct Stats compute_statistics(const float* numberset, int setlength);
 
 typedef void (*alerter_funcptr)();
